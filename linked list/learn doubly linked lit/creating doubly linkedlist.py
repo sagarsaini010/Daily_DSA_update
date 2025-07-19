@@ -1,0 +1,46 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.back = None
+
+class Linkedlist:
+    def __init__(self):
+        self.head = None
+
+    def arr2Dll(self, arr):
+        self.head = Node(arr[0])
+        temp = self.head
+        for i in range(1, len(arr)):
+            new_node = Node(arr[i])
+            temp.next = new_node
+            new_node.back = temp
+            temp = new_node
+        return self.head
+    
+    def show_linked_list(self, head):
+        temp = head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        
+        print("None")
+    
+    def show_from_back(self, head):
+        temp = head
+        while temp.next:
+            temp = temp.next
+        
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.back
+        print("None")
+
+
+
+arr = [1,2,3,4,5,6]
+
+ll = Linkedlist()
+head = ll.arr2Dll(arr)
+
+ll.show_from_back(head)
