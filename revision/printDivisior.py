@@ -11,4 +11,4 @@ def printDivisor(n):
     print(sorted(result))
     return result
 
-printDivisor(40)
+printDivisor(36)
